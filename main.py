@@ -1,12 +1,18 @@
-from flask import Flask
+from flask import Flask, request, jsonify
+from waitress import serve
 
 app = Flask(__name__)
 
-@app.route("/")
+@app.route("/", methods=["GET"])
 def home():
-    return {"status": "Agent Ayamis is running!"}
+    return jsonify({"status": "ok"})
+
+@app.route("/agent", methods=["POST"])
+def agent_handler():
+    data = request.json
+    return jsonify({
+        "response": f"Agent received: {data}"
+    })
 
 if __name__ == "__main__":
-    import os
-    port = int(os.environ.get("PORT", 8080))
-    app.run(host="0.0.0.0", port=port)
+    serve(app, host="0.0.0.0", port=8080)
