@@ -1,0 +1,15 @@
+{
+  "schema_version": "v1",
+  "name": "Ayam Agent",
+  "handle": "ayam-agent",
+  "description": "AI agent for research, chat, and prediction insights.",
+  "icon_url": "",
+  "website_url": "",
+  "contact_email": "",
+  "tags": ["Social and Chat", "Deep Research"],
+  "api": {
+    "endpoints": {
+      "query": "/query"
+    }
+  }
+}
